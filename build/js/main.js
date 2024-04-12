@@ -379,12 +379,22 @@
 // }
 // console.log(map([1, 2, 3, 4, 5], (n) => n + 10))
 // function constraints
-function getTheLongest(a, b) {
-    if (a.length > b.length) {
-        return a;
-    }
-    else {
-        return b;
-    }
-}
-console.log(getTheLongest([1, 2, 4, 5], [12, 4, 5, 2, 32, 1]));
+// function getTheLongest<Type extends { length: number }>(a: Type, b: Type) {
+//   if (a.length > b.length) {
+//     return a
+//   } else {
+//     return b
+//   }
+// }
+// console.log(getTheLongest([1, 2, 4, 5], [12, 4, 5, 2, 32, 1]))
+// Specifying Type Arguments
+// function mergeArray<Type>(arr1: Type[], arr2: Type[]): Type[] {
+//   return arr1.concat(arr2)
+// }
+// optinal parameters & optional callback parameters
+// function loop(arr: any[], callback: (arg: any, index?: number) => void) {
+//   for (let i = 0; i < arr.length; i++) {
+//     callback(arr[i], i)
+//   }
+// }
+// loop([1, 2, 3, 4, 5], (arg) => console.log(arg))
