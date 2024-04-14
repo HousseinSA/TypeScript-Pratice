@@ -497,3 +497,20 @@
 
 // filter function
 
+// function filtering<Type>(
+//   array: Type[],
+//   func: (arg: Type, index: number) => Type
+// ): Type[] {
+//   return array.map(func)
+// }
+
+// function overloads
+function combine(str1: string): string
+function combine(str1: string, str2: string, num: number): string
+
+function combine(str1: string, str2?: string, num?: number): string {
+  if (str2 && str1 && num) return str1 + str2 + num
+  return str1
+}
+
+console.log(combine("hello", "world", 1))
