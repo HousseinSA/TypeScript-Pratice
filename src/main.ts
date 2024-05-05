@@ -505,12 +505,18 @@
 // }
 
 // function overloads
-function combine(str1: string): string
-function combine(str1: string, str2: string, num: number): string
-
-function combine(str1: string, str2?: string, num?: number): string {
-  if (str2 && str1 && num) return str1 + str2 + num
-  return str1
+function dateTime(m:number):void;
+function dateTime(m:number, d:number ,y:number):void;
+function dateTime(m:number, d?:number, y?:number):void{
+  if (d !== undefined && y !== undefined){
+    console.log(m, d,y)
+  }else {
+    console.log(m)
+  }
 }
 
-console.log(combine("hello", "world", 1))
+dateTime(1, 4, 5)
+dateTime(1, 4)
+dateTime(1, 4, 5)
+
+
