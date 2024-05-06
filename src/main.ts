@@ -505,18 +505,71 @@
 // }
 
 // function overloads
-function dateTime(m:number):void;
-function dateTime(m:number, d:number ,y:number):void;
-function dateTime(m:number, d?:number, y?:number):void{
-  if (d !== undefined && y !== undefined){
-    console.log(m, d,y)
-  }else {
-    console.log(m)
-  }
+// function dateTime(m:number):void;
+// function dateTime(m:number, d:number ,y:number):void;
+// function dateTime(m:number, d?:number, y?:number):void{
+//   if (d !== undefined && y !== undefined){
+//     console.log(m, d,y)
+//   }else {
+//     console.log(m)
+//   }
+// }
+
+// dateTime(1, 4, 5)
+// dateTime(1, 4)
+// dateTime(1, 4, 5)
+
+// not right signature with the implementaion function 
+
+// function numberOrString(x:string):string
+
+// function numberOrString(x:number):number{
+//       return x
+// }
+
+// console.log(numberOrString('x'))
+
+
+
+function lengthOf(str:string):number
+
+function lengthOf(arr:any[]):number
+
+function lengthOf(x:any[]|string){
+  return x.length
 }
 
-dateTime(1, 4, 5)
-dateTime(1, 4)
-dateTime(1, 4, 5)
 
 
+  const user = {
+    id:123 ,
+
+    admin:false, 
+    becomeAdmin:function(){
+      this.admin = true
+    }
+  }
+
+
+  console.log(user.becomeAdmin())
+  console.log(user.admin)
+
+
+  // speared paramter 
+
+function spearedMulitpy(n:number, ...m:number[]){
+  return m.map(x=>n*x)
+
+}
+console.log(spearedMulitpy(10, 6, 3, 4, 5))
+
+
+// rest paramter 
+// can be fix with teh as cont when added inot i function 
+
+// desctrution parameters 
+function ObjectDesc({a, b, c}:{a:string, b:number, c:boolean}){
+  console.log(a, b, c)
+}
+
+ObjectDesc({a:'hello', b:4, c:false})

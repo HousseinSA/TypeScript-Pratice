@@ -7,9 +7,27 @@
 // //   active: boolean
 // //   compition: stringNumberArray
 // // }
-function combine(str1, str2, num) {
-    if (str2 && str1 && num)
-        return str1 + str2 + num;
-    return str1;
+function lengthOf(x) {
+    return x.length;
 }
-console.log(combine("hello", "world", 1));
+const user = {
+    id: 123,
+    admin: false,
+    becomeAdmin: function () {
+        this.admin = true;
+    }
+};
+console.log(user.becomeAdmin());
+console.log(user.admin);
+// speared paramter 
+function spearedMulitpy(n, ...m) {
+    return m.map(x => n * x);
+}
+console.log(spearedMulitpy(10, 6, 3, 4, 5));
+// rest paramter 
+// can be fix with teh as cont when added inot i function 
+// desctrution parameters 
+function ObjectDesc({ a, b, c }) {
+    console.log(a, b, c);
+}
+ObjectDesc({ a: 'hello', b: 4, c: false });
