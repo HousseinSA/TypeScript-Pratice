@@ -19,15 +19,21 @@ const user = {
 };
 console.log(user.becomeAdmin());
 console.log(user.admin);
-// speared paramter 
-function spearedMulitpy(n, ...m) {
-    return m.map(x => n * x);
+function whatAnimal({ name, type, killer = false }) {
+    return name + type + killer;
 }
-console.log(spearedMulitpy(10, 6, 3, 4, 5));
-// rest paramter 
-// can be fix with teh as cont when added inot i function 
-// desctrution parameters 
-function ObjectDesc({ a, b, c }) {
-    console.log(a, b, c);
+console.log(whatAnimal({ name: 'cat', type: 'big cats', }));
+function yourName(person) {
+    console.log('what is your age' + person.age);
+    person.age = 28;
 }
-ObjectDesc({ a: 'hello', b: 4, c: false });
+yourName({ name: 'hussein', age: 27 });
+function traveling(city) {
+    console.log('i just visit ', city.city.name);
+    return city.city.cities++;
+}
+const city = {
+    city: { name: 'vitnam', position: 'east-asia', cities: 20 }
+};
+traveling(city);
+console.log(traveling(city));

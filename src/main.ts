@@ -557,19 +557,88 @@ function lengthOf(x:any[]|string){
 
   // speared paramter 
 
-function spearedMulitpy(n:number, ...m:number[]){
-  return m.map(x=>n*x)
+// function spearedMulitpy(n:number, ...m:number[]){
+//   return m.map(x=>n*x)
 
-}
-console.log(spearedMulitpy(10, 6, 3, 4, 5))
+// }
+// console.log(spearedMulitpy(10, 6, 3, 4, 5))
 
 
 // rest paramter 
 // can be fix with teh as cont when added inot i function 
 
 // desctrution parameters 
-function ObjectDesc({a, b, c}:{a:string, b:number, c:boolean}){
-  console.log(a, b, c)
+// function ObjectDesc({a, b, c}:{a:string, b:number, c:boolean}){
+//   console.log(a, b, c)
+// }
+
+// ObjectDesc({a:'hello', b:4, c:false})
+
+// learning  about never unknown and void
+
+
+// function hello(s:string):void {
+//   return 'hello theer'
+// }
+
+
+
+
+// object types 
+
+
+// function hello(person:{name:string, age:number}){
+//   return 'hello'+ person.name
+// }
+// console.log(hello({name:'hussein', age:27}))
+
+
+// interface and types  like 
+
+interface Animal {
+  name:string, 
+  type?:string, 
+  killer?:boolean
 }
 
-ObjectDesc({a:'hello', b:4, c:false})
+
+function whatAnimal({name, type, killer=false }:Animal){
+  return name + type + killer;
+} 
+
+console.log(whatAnimal({name:'cat', type:'big cats',}))
+
+
+interface DoSomething { 
+  readonly name:string
+  readonly age:number
+}
+
+function yourName(person:DoSomething){
+    console.log('what is your age' + person.age)
+
+    person.age = 28 
+}
+
+yourName({name:'hussein', age:27})
+
+// can't update readonly  on interface but cannot do that inot the object itself
+
+
+interface travel{
+  readonly city:{name:string, position:string , cities:number}
+}
+
+function traveling(city:travel){
+  console.log('i just visit ',city.city.name)
+return city.city.cities ++
+}
+
+
+const city:travel ={
+  city:{name:'vitnam', position:'east-asia', cities:20}
+}
+
+traveling(city)
+console.log(traveling(city))
+
