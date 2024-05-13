@@ -690,7 +690,7 @@ myArray[2] = "Mallory";
 
 
 
-// execess property checking
+// execess
 interface SquareConfig {
   color?: string;
   width?: number;
