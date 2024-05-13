@@ -595,50 +595,113 @@ function lengthOf(x:any[]|string){
 
 // interface and types  like 
 
-interface Animal {
-  name:string, 
-  type?:string, 
-  killer?:boolean
+// interface Animal {
+//   name:string, 
+//   type?:string, 
+//   killer?:boolean
+// }
+
+
+// function whatAnimal({name, type, killer=false }:Animal){
+//   return name + type + killer;
+// } 
+
+// console.log(whatAnimal({name:'cat', type:'big cats',}))
+
+
+// interface DoSomething { 
+//   readonly name:string
+//   readonly age:number
+// }
+
+// function yourName(person:DoSomething){
+//     console.log('what is your age' + person.age)
+
+//     person.age = 28 
+// }
+
+// yourName({name:'hussein', age:27})
+
+// can't update readonly  on interface but can do that  the object itself
+
+
+// interface travel{
+//   readonly city:{name:string, position:string , cities:number}
+// }
+
+// function traveling(city:travel){
+//   console.log('i just visit ',city.city.name)
+// return city.city.cities ++
+// }
+
+
+// const city:travel ={
+//   city:{name:'vitnam', position:'east-asia', cities:20}
+// }
+
+// traveling(city)
+// console.log(traveling(city))
+
+// interface Home {
+//   readonly resident: { name: string; age: number };
+// }
+//  
+// function visitForBirthday(home: Home) {
+//   // We can read and update properties from 'home.resident'.
+//   console.log(`Happy birthday ${home.resident.name}!`);
+//   return home.resident.age++;
+// }
+//  
+
+// const home ={ resident:{ name:'hussein', age:27}}
+
+// // visitForBirthday(home)
+// console.log(visitForBirthday(home))
+
+
+
+
+
+// index signature
+interface StringValue{
+  [index:number]:string
 }
 
 
-function whatAnimal({name, type, killer=false }:Animal){
-  return name + type + killer;
-} 
-
-console.log(whatAnimal({name:'cat', type:'big cats',}))
-
-
-interface DoSomething { 
-  readonly name:string
-  readonly age:number
+function getStringValue ():StringValue{
+  return ['liverpool', 'are amazing', 'i love zayn' ]
 }
 
-function yourName(person:DoSomething){
-    console.log('what is your age' + person.age)
+const stringArray = getStringValue()
 
-    person.age = 28 
+const secondItem = stringArray[1]
+
+console.log(secondItem)
+
+interface ReadonlyStringArray {
+  readonly [index: number]: string;
 }
-
-yourName({name:'hussein', age:27})
-
-// can't update readonly  on interface but cannot do that inot the object itself
-
-
-interface travel{
-  readonly city:{name:string, position:string , cities:number}
+ 
+function  getReadOnlyStringArray():ReadonlyStringArray{
+  return ['liverpool', 'are amazing', 'i love zayn' ]
 }
+let myArray: ReadonlyStringArray = getReadOnlyStringArray();
+myArray[2] = "Mallory";
 
-function traveling(city:travel){
-  console.log('i just visit ',city.city.name)
-return city.city.cities ++
+
+
+// execess property checking
+interface SquareConfig {
+  color?: string;
+  width?: number;
 }
-
-
-const city:travel ={
-  city:{name:'vitnam', position:'east-asia', cities:20}
+ 
+function createSquare(config: SquareConfig): { color: string; area: number } {
+  return {
+    color: config.color || "red",
+    area: config.width ? config.width * config.width : 20,
+  };
 }
-
-traveling(city)
-console.log(traveling(city))
+ 
+let mySquare = createSquare({ colour: "red", width: 100 });
 

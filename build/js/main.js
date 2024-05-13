@@ -19,21 +19,21 @@ const user = {
 };
 console.log(user.becomeAdmin());
 console.log(user.admin);
-function whatAnimal({ name, type, killer = false }) {
-    return name + type + killer;
+function getStringValue() {
+    return ['liverpool', 'are amazing', 'i love zayn'];
 }
-console.log(whatAnimal({ name: 'cat', type: 'big cats', }));
-function yourName(person) {
-    console.log('what is your age' + person.age);
-    person.age = 28;
+const stringArray = getStringValue();
+const secondItem = stringArray[1];
+console.log(secondItem);
+function getReadOnlyStringArray() {
+    return ['liverpool', 'are amazing', 'i love zayn'];
 }
-yourName({ name: 'hussein', age: 27 });
-function traveling(city) {
-    console.log('i just visit ', city.city.name);
-    return city.city.cities++;
+let myArray = getReadOnlyStringArray();
+myArray[2] = "Mallory";
+function createSquare(config) {
+    return {
+        color: config.color || "red",
+        area: config.width ? config.width * config.width : 20,
+    };
 }
-const city = {
-    city: { name: 'vitnam', position: 'east-asia', cities: 20 }
-};
-traveling(city);
-console.log(traveling(city));
+let mySquare = createSquare({ colour: "red", width: 100 });
