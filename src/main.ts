@@ -663,45 +663,86 @@ function lengthOf(x:any[]|string){
 
 
 // index signature
-interface StringValue{
-  [index:number]:string
+
+
+// interface StringValue{
+//   [index:number]:string
+// }
+
+
+// function getStringValue ():StringValue{
+//   return ['liverpool', 'are amazing', 'i love zayn' ]
+// }
+
+// const stringArray = getStringValue()
+
+// const secondItem = stringArray[1]
+
+// console.log(secondItem)
+
+// interface ReadonlyStringArray {
+//   readonly [index: number]: string;
+// }
+//  
+// function  getReadOnlyStringArray():ReadonlyStringArray{
+//   return ['liverpool', 'are amazing', 'i love zayn' ]
+// }
+// let myArray: ReadonlyStringArray = getReadOnlyStringArray();
+// myArray[2] = "Mallory";
+
+
+
+// // execess
+// interface SquareConfig {
+//   color?: string;
+//   width?: number;
+// }
+//  
+// function createSquare(config: SquareConfig): { color: string; area: number } {
+//   return {
+//     color: config.color || "red",
+//     area: config.width ? config.width * config.width : 20,
+//   };
+// }
+//  
+// let mySquare = createSquare({ colour: "red", width: 100 });
+
+
+
+//  extending other interfaces 
+
+interface Player {
+  name: string, 
+  number:number, 
+  age:number, 
+  position:string, 
+  club:string, 
+  country:string, 
+  injured:boolean
 }
 
 
-function getStringValue ():StringValue{
-  return ['liverpool', 'are amazing', 'i love zayn' ]
+const player :Player= {
+  name:'Mo Salah', 
+  number:11, 
+  age:32, 
+  position:'right winger',
+  club:'Liverpool', 
+  country:'Egypt', 
+  injured:false
 }
 
-const stringArray = getStringValue()
-
-const secondItem = stringArray[1]
-
-console.log(secondItem)
-
-interface ReadonlyStringArray {
-  readonly [index: number]: string;
+interface MoreOnPlayer extends Player {
+  ContractYear :number
 }
- 
-function  getReadOnlyStringArray():ReadonlyStringArray{
-  return ['liverpool', 'are amazing', 'i love zayn' ]
+
+const moreAboutPlayer:MoreOnPlayer = {
+  name:'Mo Salah', 
+  number:11, 
+  age:32, 
+  position:'right winger',
+  club:'Liverpool', 
+  country:'Egypt', 
+  injured:false,
+  ContractYear:2025
 }
-let myArray: ReadonlyStringArray = getReadOnlyStringArray();
-myArray[2] = "Mallory";
-
-
-
-// execess
-interface SquareConfig {
-  color?: string;
-  width?: number;
-}
- 
-function createSquare(config: SquareConfig): { color: string; area: number } {
-  return {
-    color: config.color || "red",
-    area: config.width ? config.width * config.width : 20,
-  };
-}
- 
-let mySquare = createSquare({ colour: "red", width: 100 });
-
