@@ -7,33 +7,37 @@
 // //   active: boolean
 // //   compition: stringNumberArray
 // // }
-function lengthOf(x) {
-    return x.length;
-}
-const user = {
-    id: 123,
-    admin: false,
-    becomeAdmin: function () {
-        this.admin = true;
-    }
+const player = {
+    name: "Mo Salah",
+    number: 11,
+    age: 32,
+    position: "right winger",
+    club: "Liverpool",
+    country: "Egypt",
+    injured: false,
 };
-console.log(user.becomeAdmin());
-console.log(user.admin);
-function getStringValue() {
-    return ['liverpool', 'are amazing', 'i love zayn'];
-}
-const stringArray = getStringValue();
-const secondItem = stringArray[1];
-console.log(secondItem);
-function getReadOnlyStringArray() {
-    return ['liverpool', 'are amazing', 'i love zayn'];
-}
-let myArray = getReadOnlyStringArray();
-myArray[2] = "Mallory";
-function createSquare(config) {
-    return {
-        color: config.color || "red",
-        area: config.width ? config.width * config.width : 20,
-    };
-}
-let mySquare = createSquare({ colour: "red", width: 100 });
+const moreAboutPlayer = {
+    name: "Mo Salah",
+    number: 11,
+    age: 32,
+    position: "right winger",
+    club: "Liverpool",
+    country: "Egypt",
+    injured: false,
+    ContractYear: 2025,
+};
+const ColorCircle = {
+    color: "green",
+    radius: "100%",
+    width: "50px",
+    height: "50px",
+};
+console.log(ColorCircle);
+const circle = document.createElement("div");
+circle.style.width = ColorCircle.width;
+circle.style.height = ColorCircle.height;
+circle.style.borderRadius = ColorCircle.radius;
+circle.style.backgroundColor = ColorCircle.color;
+document.body.appendChild(circle);
+const anything = { content: 27 };
+console.log(anything);

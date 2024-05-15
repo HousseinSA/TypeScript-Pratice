@@ -519,7 +519,7 @@
 // dateTime(1, 4)
 // dateTime(1, 4, 5)
 
-// not right signature with the implementaion function 
+// not right signature with the implementaion function
 
 // function numberOrString(x:string):string
 
@@ -529,33 +529,27 @@
 
 // console.log(numberOrString('x'))
 
+// function lengthOf(str:string):number
 
+// function lengthOf(arr:any[]):number
 
-function lengthOf(str:string):number
+// function lengthOf(x:any[]|string){
+//   return x.length
+// }
 
-function lengthOf(arr:any[]):number
+//   const user = {
+//     id:123 ,
 
-function lengthOf(x:any[]|string){
-  return x.length
-}
+//     admin:false,
+//     becomeAdmin:function(){
+//       this.admin = true
+//     }
+//   }
 
+//   console.log(user.becomeAdmin())
+//   console.log(user.admin)
 
-
-  const user = {
-    id:123 ,
-
-    admin:false, 
-    becomeAdmin:function(){
-      this.admin = true
-    }
-  }
-
-
-  console.log(user.becomeAdmin())
-  console.log(user.admin)
-
-
-  // speared paramter 
+// speared paramter
 
 // function spearedMulitpy(n:number, ...m:number[]){
 //   return m.map(x=>n*x)
@@ -563,11 +557,10 @@ function lengthOf(x:any[]|string){
 // }
 // console.log(spearedMulitpy(10, 6, 3, 4, 5))
 
+// rest paramter
+// can be fix with teh as cont when added inot i function
 
-// rest paramter 
-// can be fix with teh as cont when added inot i function 
-
-// desctrution parameters 
+// desctrution parameters
 // function ObjectDesc({a, b, c}:{a:string, b:number, c:boolean}){
 //   console.log(a, b, c)
 // }
@@ -576,40 +569,32 @@ function lengthOf(x:any[]|string){
 
 // learning  about never unknown and void
 
-
 // function hello(s:string):void {
 //   return 'hello theer'
 // }
 
-
-
-
-// object types 
-
+// object types
 
 // function hello(person:{name:string, age:number}){
 //   return 'hello'+ person.name
 // }
 // console.log(hello({name:'hussein', age:27}))
 
-
-// interface and types  like 
+// interface and types  like
 
 // interface Animal {
-//   name:string, 
-//   type?:string, 
+//   name:string,
+//   type?:string,
 //   killer?:boolean
 // }
 
-
 // function whatAnimal({name, type, killer=false }:Animal){
 //   return name + type + killer;
-// } 
+// }
 
 // console.log(whatAnimal({name:'cat', type:'big cats',}))
 
-
-// interface DoSomething { 
+// interface DoSomething {
 //   readonly name:string
 //   readonly age:number
 // }
@@ -617,13 +602,12 @@ function lengthOf(x:any[]|string){
 // function yourName(person:DoSomething){
 //     console.log('what is your age' + person.age)
 
-//     person.age = 28 
+//     person.age = 28
 // }
 
 // yourName({name:'hussein', age:27})
 
 // can't update readonly  on interface but can do that  the object itself
-
 
 // interface travel{
 //   readonly city:{name:string, position:string , cities:number}
@@ -633,7 +617,6 @@ function lengthOf(x:any[]|string){
 //   console.log('i just visit ',city.city.name)
 // return city.city.cities ++
 // }
-
 
 // const city:travel ={
 //   city:{name:'vitnam', position:'east-asia', cities:20}
@@ -645,30 +628,24 @@ function lengthOf(x:any[]|string){
 // interface Home {
 //   readonly resident: { name: string; age: number };
 // }
-//  
+//
 // function visitForBirthday(home: Home) {
 //   // We can read and update properties from 'home.resident'.
 //   console.log(`Happy birthday ${home.resident.name}!`);
 //   return home.resident.age++;
 // }
-//  
+//
 
 // const home ={ resident:{ name:'hussein', age:27}}
 
 // // visitForBirthday(home)
 // console.log(visitForBirthday(home))
 
-
-
-
-
 // index signature
-
 
 // interface StringValue{
 //   [index:number]:string
 // }
-
 
 // function getStringValue ():StringValue{
 //   return ['liverpool', 'are amazing', 'i love zayn' ]
@@ -683,66 +660,105 @@ function lengthOf(x:any[]|string){
 // interface ReadonlyStringArray {
 //   readonly [index: number]: string;
 // }
-//  
+//
 // function  getReadOnlyStringArray():ReadonlyStringArray{
 //   return ['liverpool', 'are amazing', 'i love zayn' ]
 // }
 // let myArray: ReadonlyStringArray = getReadOnlyStringArray();
 // myArray[2] = "Mallory";
 
-
-
 // // execess
 // interface SquareConfig {
 //   color?: string;
 //   width?: number;
 // }
-//  
+//
 // function createSquare(config: SquareConfig): { color: string; area: number } {
 //   return {
 //     color: config.color || "red",
 //     area: config.width ? config.width * config.width : 20,
 //   };
 // }
-//  
+//
 // let mySquare = createSquare({ colour: "red", width: 100 });
 
-
-
-//  extending other interfaces 
+//  extending other interfaces
 
 interface Player {
-  name: string, 
-  number:number, 
-  age:number, 
-  position:string, 
-  club:string, 
-  country:string, 
-  injured:boolean
+  name: string;
+  number: number;
+  age: number;
+  position: string;
+  club: string;
+  country: string;
+  injured: boolean;
 }
 
-
-const player :Player= {
-  name:'Mo Salah', 
-  number:11, 
-  age:32, 
-  position:'right winger',
-  club:'Liverpool', 
-  country:'Egypt', 
-  injured:false
-}
+const player: Player = {
+  name: "Mo Salah",
+  number: 11,
+  age: 32,
+  position: "right winger",
+  club: "Liverpool",
+  country: "Egypt",
+  injured: false,
+};
 
 interface MoreOnPlayer extends Player {
-  ContractYear :number
+  ContractYear: number;
 }
 
-const moreAboutPlayer:MoreOnPlayer = {
-  name:'Mo Salah', 
-  number:11, 
-  age:32, 
-  position:'right winger',
-  club:'Liverpool', 
-  country:'Egypt', 
-  injured:false,
-  ContractYear:2025
+const moreAboutPlayer: MoreOnPlayer = {
+  name: "Mo Salah",
+  number: 11,
+  age: 32,
+  position: "right winger",
+  club: "Liverpool",
+  country: "Egypt",
+  injured: false,
+  ContractYear: 2025,
+};
+
+interface Color {
+  color: string;
 }
+interface circle {
+  radius: string;
+}
+
+interface CircleWithColor extends circle, Color {
+  color: string;
+  radius: string;
+  width: string;
+  height: string;
+}
+
+const ColorCircle: CircleWithColor = {
+  color: "green",
+  radius: "100%",
+  width: "50px",
+  height: "50px",
+};
+
+console.log(ColorCircle);
+
+const circle = document.createElement("div");
+
+circle.style.width = ColorCircle.width;
+circle.style.height = ColorCircle.height;
+circle.style.borderRadius = ColorCircle.radius;
+circle.style.backgroundColor = ColorCircle.color; 
+document.body.appendChild(circle);
+
+
+// generics on interface 
+
+
+interface Something<Type>{
+
+  content :Type
+}
+
+const anything:Something<number>= {content:27 }
+console.log(anything)
+
