@@ -39,5 +39,26 @@ circle.style.height = ColorCircle.height;
 circle.style.borderRadius = ColorCircle.radius;
 circle.style.backgroundColor = ColorCircle.color;
 document.body.appendChild(circle);
-const anything = { content: 27 };
-console.log(anything);
+const typeString = {
+    content: 'hello world'
+};
+console.log(typeString);
+const apples = {
+    content: {
+        apple: 'this is an apple '
+    }
+};
+console.log(apples);
+function testing(box, newContent) {
+    return box.content = newContent;
+}
+const oldString = {
+    content: 'old string'
+};
+// array type 
+function testingArray(array) {
+    return array;
+}
+const myArray = ['hello', 'world',];
+console.log(testingArray(myArray));
+console.log(testingArray(new Array('neji', 'zayn', 'hussein')));

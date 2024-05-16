@@ -754,11 +754,50 @@ document.body.appendChild(circle);
 // generics on interface 
 
 
-interface Something<Type>{
+  interface Box<Type> {
+    content :Type
+  }
 
-  content :Type
+  const typeString :Box<String> ={
+    content:'hello world'
+  }
+
+  console.log(typeString)
+
+ interface Apple {
+  apple:string
+ }
+ type AppleBox = Box<Apple>
+
+ const apples :AppleBox ={
+  content:{
+    apple:'this is an apple '
+  }
+ }
+
+interface BoxTest<Type>{
+content:Type
 }
 
-const anything:Something<number>= {content:27 }
-console.log(anything)
+ console.log(apples)
+function testing<Type>(box:Box<Type>, newContent:Type){
+  return box.content = newContent
+}
 
+const oldString :Box<string>={
+  content :'old string'
+}
+
+
+// array type 
+
+
+function testingArray(array:Array< string >){
+  return array
+}
+
+const myArray :string[] = ['hello', 'world',]
+console.log(testingArray(myArray))
+
+
+console.log(testingArray(new Array('neji','zayn', 'hussein')))
