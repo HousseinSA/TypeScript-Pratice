@@ -754,39 +754,36 @@ document.body.appendChild(circle);
 // generics on interface 
 
 
-  interface Box<Type> {
-    content :Type
-  }
+  // interface Box<Type> {
+  //   content :Type
+  // }
 
-  const typeString :Box<String> ={
-    content:'hello world'
-  }
+  // const typeString :Box<String> ={
+  //   content:'hello world'
+  // }
 
-  console.log(typeString)
+  // console.log(typeString)
 
- interface Apple {
-  apple:string
- }
- type AppleBox = Box<Apple>
 
- const apples :AppleBox ={
-  content:{
-    apple:'this is an apple '
-  }
- }
 
-interface BoxTest<Type>{
-content:Type
+interface Box <Type> {
+  contents :Type
 }
 
- console.log(apples)
-function testing<Type>(box:Box<Type>, newContent:Type){
-  return box.content = newContent
+interface Apple {
+  contents:string
 }
 
-const oldString :Box<string>={
-  content :'old string'
+type appleBox =Box<Apple>
+
+const apples :appleBox ={
+  contents:{
+    contents:'hello there'
+    
+    }
+  
 }
+console.log(apples)
 
 
 // array type 
@@ -800,3 +797,35 @@ console.log(testingArray(myArray))
 
 
 console.log(testingArray(new Array('neji','zayn', 'hussein')))
+
+
+
+// more type checking for types aliases
+type valueOrNull<Type> = Type | null
+
+
+
+const something :valueOrNull<string> ='room under the stairs'
+
+console.log(something )
+
+
+function readonlyArray(array:ReadonlyArray<string>){
+  const slice = array.slice()
+
+  console.log(array[0])
+
+  // array.push('somethingNew')
+
+}
+
+// learning about array typles 
+
+function noChange(pair: readonly [number, string]) {
+  console.log(pair[0])
+}
+noChange([7,'heelo'])
+
+
+
+readonlyArray(['hello', 'killer of man'])
