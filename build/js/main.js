@@ -46,22 +46,33 @@ const apples = {
 };
 console.log(apples);
 // array type 
-function testingArray(array) {
-    return array;
+// function testingArray(array:Array< string >){
+//   return array
+// }
+// const myArray :string[] = ['hello', 'world',]
+// console.log(testingArray(myArray))
+// console.log(testingArray(new Array('neji','zayn', 'hussein')))
+// more type checking for types aliases
+// type valueOrNull<Type> = Type | null
+// const something :valueOrNull<string> ='killer'
+// function readonlyArray(array:ReadonlyArray<string>){
+//   const slice = array.slice()
+//   console.log(array[0])
+// }
+// learning about array typles and readonly 
+// function noChange(pair: readonly [number, string]) {
+//   console.log(pair[0])
+// }
+// noChange([7,'hello'])
+// spread typles
+function allArray(array) {
+    console.log(array);
 }
-const myArray = ['hello', 'world',];
-console.log(testingArray(myArray));
-console.log(testingArray(new Array('neji', 'zayn', 'hussein')));
-const something = 'room under the stairs';
-console.log(something);
-function readonlyArray(array) {
-    const slice = array.slice();
-    console.log(array[0]);
-    // array.push('somethingNew')
-}
-// learning about array typles 
-function noChange(pair) {
-    console.log(pair[0]);
-}
-noChange([7, 'heelo']);
-readonlyArray(['hello', 'killer of man']);
+allArray([1, 'hussein',]);
+// assetion with typles array don't work 
+// const points = [4, 5] as const 
+// function calculate(points:[number, number]){
+//   const [x, y] = point
+//   return x +y
+// }
+// calculate(points)
