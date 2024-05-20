@@ -684,71 +684,71 @@
 
 //  extending other interfaces
 
-interface Player {
-  name: string;
-  number: number;
-  age: number;
-  position: string;
-  club: string;
-  country: string;
-  injured: boolean;
-}
+// interface Player {
+//   name: string;
+//   number: number;
+//   age: number;
+//   position: string;
+//   club: string;
+//   country: string;
+//   injured: boolean;
+// }
 
-const player: Player = {
-  name: "Mo Salah",
-  number: 11,
-  age: 32,
-  position: "right winger",
-  club: "Liverpool",
-  country: "Egypt",
-  injured: false,
-};
+// const player: Player = {
+//   name: "Mo Salah",
+//   number: 11,
+//   age: 32,
+//   position: "right winger",
+//   club: "Liverpool",
+//   country: "Egypt",
+//   injured: false,
+// };
 
-interface MoreOnPlayer extends Player {
-  ContractYear: number;
-}
+// interface MoreOnPlayer extends Player {
+//   ContractYear: number;
+// }
 
-const moreAboutPlayer: MoreOnPlayer = {
-  name: "Mo Salah",
-  number: 11,
-  age: 32,
-  position: "right winger",
-  club: "Liverpool",
-  country: "Egypt",
-  injured: false,
-  ContractYear: 2025,
-};
+// const moreAboutPlayer: MoreOnPlayer = {
+//   name: "Mo Salah",
+//   number: 11,
+//   age: 32,
+//   position: "right winger",
+//   club: "Liverpool",
+//   country: "Egypt",
+//   injured: false,
+//   ContractYear: 2025,
+// };
 
-interface Color {
-  color: string;
-}
-interface circle {
-  radius: string;
-}
+// interface Color {
+//   color: string;
+// }
+// interface circle {
+//   radius: string;
+// }
 
-interface CircleWithColor extends circle, Color {
-  color: string;
-  radius: string;
-  width: string;
-  height: string;
-}
+// interface CircleWithColor extends circle, Color {
+//   color: string;
+//   radius: string;
+//   width: string;
+//   height: string;
+// }
 
-const ColorCircle: CircleWithColor = {
-  color: "green",
-  radius: "100%",
-  width: "50px",
-  height: "50px",
-};
+// const ColorCircle: CircleWithColor = {
+//   color: "green",
+//   radius: "100%",
+//   width: "50px",
+//   height: "50px",
+// };
 
-console.log(ColorCircle);
+// console.log(ColorCircle);
 
-const circle = document.createElement("div");
+// const circle = document.createElement("div");
 
-circle.style.width = ColorCircle.width;
-circle.style.height = ColorCircle.height;
-circle.style.borderRadius = ColorCircle.radius;
-circle.style.backgroundColor = ColorCircle.color; 
-document.body.appendChild(circle);
+// circle.style.width = ColorCircle.width;
+// circle.style.height = ColorCircle.height;
+// circle.style.borderRadius = ColorCircle.radius;
+// circle.style.backgroundColor = ColorCircle.color; 
+// document.body.appendChild(circle);
 
 
 // generics on interface 
@@ -766,24 +766,24 @@ document.body.appendChild(circle);
 
 
 
-interface Box <Type> {
-  contents :Type
-}
+// interface Box <Type> {
+//   contents :Type
+// }
 
-interface Apple {
-  contents:string
-}
+// interface Apple {
+//   contents:string
+// }
 
-type appleBox =Box<Apple>
+// type appleBox =Box<Apple>
 
-const apples :appleBox ={
-  contents:{
-    contents:'hello there'
+// const apples :appleBox ={
+//   contents:{
+//     contents:'hello there'
     
-    }
+//     }
   
-}
-console.log(apples)
+// }
+// console.log(apples)
 
 
 // array type 
@@ -826,10 +826,10 @@ console.log(apples)
 
 // spread typles
 
-function allArray(array:readonly [number, string, number? ]){
-    console.log(array)
-}
-allArray([1, 'hussein',])
+// function allArray(array:readonly [number, string, number? ]){
+//     console.log(array)
+// }
+// allArray([1, 'hussein',])
 
 
 
@@ -845,3 +845,92 @@ allArray([1, 'hussein',])
 
 // calculate(points)
 
+
+
+// class types 
+
+// class Point {
+//   x:number;
+//   y:number;
+// }
+
+
+// const points =  new Point() 
+
+// points.x = 3
+// points.y  = 10
+
+// console.log(points.x)
+
+
+// class amazingPerson {
+//   name!:string
+
+
+ 
+// }
+
+// const person = new amazingPerson()
+
+// person.name = 'hussein' 
+// console.log(person)
+
+
+// readonly class propertires 
+
+// class readOnlyPerson {
+//   readonly name: string = 'neji'
+//   constructor(otherName?:string){
+//     if(otherName !== undefined){
+//       this.name = otherName
+//     }
+
+
+    
+//   }
+//   err(){
+//     this.name = 'hello'
+//   }
+
+// }
+
+// const Hello = new readOnlyPerson()
+// Hello.name = 'love'
+
+
+
+// classes type pending 
+
+
+
+// generics
+
+
+// function testing<Type>(arg:Type):Type{
+//   return arg
+// }
+
+
+// const loveLearning = testing(32)
+// console.log(loveLearning)
+
+// generic interface
+function generic<Type>(arg:Type):Type{
+  return arg
+}
+
+const myGeneric :{ <Type>(arg:Type):Type }= generic
+
+
+interface GenericType {
+  <Type>(arg:Type):Type
+}
+
+
+function genericFn<Type>(arg:Type):Type{
+return arg
+}
+
+let generitcFnInterface:GenericType = generic
+
+console.log(generitcFnInterface(20))
