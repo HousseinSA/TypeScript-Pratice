@@ -914,23 +914,59 @@
 // const loveLearning = testing(32)
 // console.log(loveLearning)
 
-// generic interface
+
+// generic with types 
 function generic<Type>(arg:Type):Type{
-  return arg
+  return arg 
+ }
+// generic interface
+interface genericType <Type>{
+  (arg:Type):Type
 }
-
-const myGeneric :{ <Type>(arg:Type):Type }= generic
-
-
-interface GenericType {
-  <Type>(arg:Type):Type
-}
+const myGeneric : genericType<string> = generic
 
 
-function genericFn<Type>(arg:Type):Type{
-return arg
-}
+console.log('generic interfaces', myGeneric('love'))
 
-let generitcFnInterface:GenericType = generic
 
-console.log(generitcFnInterface(20))
+
+// generic with classes 
+
+// class GenericClass<Type>{
+//   randomNum:Type
+//   add:(x:Type, z:Type)=>Type
+// }
+
+// const testGeneric = new GenericClass<number>()
+
+// testGeneric.randomNum = 5
+// testGeneric.add = function(x, y){
+//   return 5 +4
+// }
+
+// console.log(testGeneric.add(4, 5))
+
+// Constraints
+// interface Length {
+//   length: number
+// }
+
+// function getLength <Type extends Length>(x:Type):Type {
+//   console.log(x.length)
+//  return x
+// }
+
+// const see = getLength('hello')
+
+
+
+// constraints of of keyof 
+
+  function objectGeneric <Type , Key extends keyof Type>(object:Type , key:Key) {
+  return object[key]
+  }
+
+  const objectFun= {key:1, name:'zayn'}
+
+  const objects =objectGeneric(objectFun, 'name')
+  console.log(objects)

@@ -682,13 +682,36 @@
 // }
 // const loveLearning = testing(32)
 // console.log(loveLearning)
-// generic interface
+// generic with types 
 function generic(arg) {
     return arg;
 }
 const myGeneric = generic;
-function genericFn(arg) {
-    return arg;
+console.log('generic interfaces', myGeneric('love'));
+// generic with classes 
+// class GenericClass<Type>{
+//   randomNum:Type
+//   add:(x:Type, z:Type)=>Type
+// }
+// const testGeneric = new GenericClass<number>()
+// testGeneric.randomNum = 5
+// testGeneric.add = function(x, y){
+//   return 5 +4
+// }
+// console.log(testGeneric.add(4, 5))
+// Constraints
+// interface Length {
+//   length: number
+// }
+// function getLength <Type extends Length>(x:Type):Type {
+//   console.log(x.length)
+//  return x
+// }
+// const see = getLength('hello')
+// constraints of of keyof 
+function objectGeneric(object, key) {
+    return object[key];
 }
-let generitcFnInterface = generic;
-console.log(generitcFnInterface(20));
+const objectFun = { key: 1, name: 'zayn' };
+const objects = objectGeneric(objectFun, 'name');
+console.log(objects);
