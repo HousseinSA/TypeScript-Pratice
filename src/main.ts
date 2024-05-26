@@ -923,8 +923,8 @@ function generic<Type>(arg:Type):Type{
 interface genericType <Type>{
   (arg:Type):Type
 }
-const myGeneric : genericType<string> = generic
 
+const myGeneric : genericType<string> = generic
 
 console.log('generic interfaces', myGeneric('love'))
 
@@ -933,40 +933,54 @@ console.log('generic interfaces', myGeneric('love'))
 // generic with classes 
 
 // class GenericClass<Type>{
-//   randomNum:Type
-//   add:(x:Type, z:Type)=>Type
+//   number:Type
+//   add:(a:Type, b:Type)=>Type
 // }
 
-// const testGeneric = new GenericClass<number>()
+// let creatingClassGeneric = new GenericClass<number>()
 
-// testGeneric.randomNum = 5
-// testGeneric.add = function(x, y){
-//   return 5 +4
-// }
+//  creatingClassGeneric.number=53
+//  creatingClassGeneric.add = (a, b ) => a + b 
 
-// console.log(testGeneric.add(4, 5))
-
-// Constraints
+//  console.log(creatingClassGeneric.add(5,3))
+// // Constraints
 // interface Length {
 //   length: number
 // }
 
 // function getLength <Type extends Length>(x:Type):Type {
-//   console.log(x.length)
+//  console.log(x.length)
 //  return x
 // }
 
-// const see = getLength('hello')
+// const see = getLength('lauv')
 
 
 
 // constraints of of keyof 
 
-  function objectGeneric <Type , Key extends keyof Type>(object:Type , key:Key) {
-  return object[key]
-  }
+// function getObjectKey <Type , Key extends keyof Type>(obj:Type, key: Key){
+//   return obj[key]
+// }
 
-  const objectFun= {key:1, name:'zayn'}
+// console.log(getObjectKey({name:'hussein', age:27}, 'name'))
 
-  const objects =objectGeneric(objectFun, 'name')
-  console.log(objects)
+
+// keyof type 
+
+
+interface Points {
+  x:number, y:number
+}
+
+type Keypoint = keyof Points
+
+
+function myPoints(point:Points, key:Keypoint){
+  return point[key]
+}
+
+const points = {x:2, y:6}
+console.log(myPoints(points,'x'))
+console.log(myPoints(points,'y'))
+

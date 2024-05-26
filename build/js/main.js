@@ -688,30 +688,9 @@ function generic(arg) {
 }
 const myGeneric = generic;
 console.log('generic interfaces', myGeneric('love'));
-// generic with classes 
-// class GenericClass<Type>{
-//   randomNum:Type
-//   add:(x:Type, z:Type)=>Type
-// }
-// const testGeneric = new GenericClass<number>()
-// testGeneric.randomNum = 5
-// testGeneric.add = function(x, y){
-//   return 5 +4
-// }
-// console.log(testGeneric.add(4, 5))
-// Constraints
-// interface Length {
-//   length: number
-// }
-// function getLength <Type extends Length>(x:Type):Type {
-//   console.log(x.length)
-//  return x
-// }
-// const see = getLength('hello')
-// constraints of of keyof 
-function objectGeneric(object, key) {
-    return object[key];
+function myPoints(point, key) {
+    return point[key];
 }
-const objectFun = { key: 1, name: 'zayn' };
-const objects = objectGeneric(objectFun, 'name');
-console.log(objects);
+const points = { x: 2, y: 6 };
+console.log(myPoints(points, 'x'));
+console.log(myPoints(points, 'y'));
