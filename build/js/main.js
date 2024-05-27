@@ -688,9 +688,16 @@ function generic(arg) {
 }
 const myGeneric = generic;
 console.log('generic interfaces', myGeneric('love'));
-function myPoints(point, key) {
-    return point[key];
+const pointFunc = function (thisPoint, key) {
+    return thisPoint[key];
+};
+const pointObj = { x: 5, y: 10 };
+console.log(pointFunc(pointObj, 'x'));
+console.log(pointFunc(pointObj, 'y'));
+const indexFun = function (array, index) {
+    return array[index];
+};
+console.log(indexFun([3, 3, 4], 1));
+function f() {
+    return { x: 3, y: 4 };
 }
-const points = { x: 2, y: 6 };
-console.log(myPoints(points, 'x'));
-console.log(myPoints(points, 'y'));
