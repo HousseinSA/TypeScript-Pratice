@@ -967,44 +967,97 @@ console.log('generic interfaces', myGeneric('love'))
 
 
 // keyof type 
-interface Points {
-  x:number, y:number
-}
+// interface Points {
+//   x:number, y:number
+// }
 
-type point = keyof Points
+// type point = keyof Points
 
-const pointFunc = function(thisPoint:Points, key:point) {
-  return  thisPoint[key]
-}
+// const pointFunc = function(thisPoint:Points, key:point) {
+//   return  thisPoint[key]
+// }
 
-const pointObj = {x:5, y:10}
-console.log(pointFunc(pointObj, 'x'))
-console.log(pointFunc(pointObj, 'y'))
+// const pointObj = {x:5, y:10}
+// console.log(pointFunc(pointObj, 'x'))
+// console.log(pointFunc(pointObj, 'y'))
+
+// function getProperty<T, K extends keyof T> (obj:T, key:K):T[K]{
+// return obj[key]
+// }
+
+// console.log(getProperty({name:'lauv', age:29}, 'age'))
 
 
 // keyof in index signatures
 
-interface indexValue {
-  [index: number]: number;
-}
+// interface indexValue {
+//   [index: number]: number;
+// }
 
-type p = keyof indexValue;
+// type p = keyof indexValue;
 
-const indexFun = function (array: indexValue, index: number): number {
-  return array[index];
-};
+// const indexFun = function (array: indexValue, index: number): number {
+//   return array[index];
+// };
 
-console.log(indexFun([3, 3, 4] , 1))
+// console.log(indexFun([3, 3, 4] , 1))
 
 // typeof type operator 
 
-type funcType = (num:number)=>number
+// type funcType = (num:number)=>number
 
-type k = ReturnType<funcType>
+// type k = ReturnType<funcType>
 
-function f(){
-  return {x:3, y:4}
+// function f(){
+//   return {x:3, y:4}
+// }
+
+
+// type love= ReturnType<typeof f>
+
+
+let person = 'hussein'
+
+let anotherPerson : typeof person
+
+
+anotherPerson ='neji'
+// with object 
+
+interface personObject {
+  name:'string', age:number
 }
 
+// type personType  = typeof personObject
 
-type love= ReturnType<typeof f>
+
+// combine typeof keyof
+
+// const testingPerson ={
+//   name:'hussein' , age:27
+// }
+
+// type personType = typeof testingPerson
+// type personKeys = keyof typeof testingPerson
+
+// function getValue(obj:personType , key: personKeys):personType[personKeys{
+// return obj[key]
+// }
+
+// console.log(getValue(testingPerson, 'age'))
+
+
+// typeof function 
+
+
+// function lauv(name:string):string{
+//   return name
+// }
+
+// type typeLauv = typeof lauv
+
+// const greetLauv :typeLauv = function GetStringValue(name:string):string{
+//   return name
+// }
+
+// console.log(greetLauv('killer'))
