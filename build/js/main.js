@@ -745,23 +745,9 @@ console.log('generic interfaces', myGeneric('love'));
 let person = 'hussein';
 let anotherPerson;
 anotherPerson = 'neji';
-// type personType  = typeof personObject
-// combine typeof keyof
-// const testingPerson ={
-//   name:'hussein' , age:27
-// }
-// type personType = typeof testingPerson
-// type personKeys = keyof typeof testingPerson
-// function getValue(obj:personType , key: personKeys):personType[personKeys{
-// return obj[key]
-// }
-// console.log(getValue(testingPerson, 'age'))
-// typeof function 
-// function lauv(name:string):string{
-//   return name
-// }
-// type typeLauv = typeof lauv
-// const greetLauv :typeLauv = function GetStringValue(name:string):string{
-//   return name
-// }
-// console.log(greetLauv('killer'))
+// with arrays 
+const users = [
+    { username: "Alice", age: 25 },
+    { username: "Bob", age: 30 },
+    { username: "Charlie", age: 35 },
+];

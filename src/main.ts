@@ -1034,7 +1034,7 @@ interface personObject {
 // combine typeof keyof
 
 // const testingPerson ={
-//   name:'hussein' , age:27
+//   name:'hussein' , age: 27
 // }
 
 // type personType = typeof testingPerson
@@ -1051,13 +1051,80 @@ interface personObject {
 
 
 // function lauv(name:string):string{
-//   return name
+//   return name 
 // }
 
-// type typeLauv = typeof lauv
+// // type func = typeof lauv
 
 // const greetLauv :typeLauv = function GetStringValue(name:string):string{
 //   return name
 // }
 
 // console.log(greetLauv('killer'))
+
+// Indexed Access Types
+type Car = {
+  make: string;
+  model: string;
+  year: number;
+};
+
+
+type makeType  = Car['make']
+
+type ModelYearType = Car['model'|'year']
+
+type Book = {
+  title: string;
+  author: string;
+  pages: number;
+  published: boolean;
+};
+
+type StringProperties = Book['title'| 'author']
+
+type allProps = Book[keyof Book]
+
+
+// with arrays 
+
+const users = [
+  { username: "Alice", age: 25 },
+  { username: "Bob", age: 30 },
+  { username: "Charlie", age: 35 },
+];
+
+type User = typeof users[number]
+type Username =  User['username']
+type Age =  User['age']
+
+
+
+// Custom Key Unions
+
+type Person = {
+  name: string;
+  age: number;
+  alive: boolean;
+  address: string;
+};
+
+
+type NameOrAddress = Person['name'|'address']
+
+type allButBoolean = 'age' | 'alive'
+
+type NonBooleanProperties = Person[ allButBoolean ]
+
+// Conditional types
+
+interface Animal{
+  name:string
+}
+
+interface Cat extends Animal {
+  sound :string
+}
+
+
+type CatSound = Cat extends Animal ? string :number
