@@ -747,24 +747,20 @@
 // circle.style.width = ColorCircle.width;
 // circle.style.height = ColorCircle.height;
 // circle.style.borderRadius = ColorCircle.radius;
-// circle.style.backgroundColor = ColorCircle.color; 
+// circle.style.backgroundColor = ColorCircle.color;
 // document.body.appendChild(circle);
 
+// generics on interface
 
-// generics on interface 
+// interface Box<Type> {
+//   content :Type
+// }
 
+// const typeString :Box<String> ={
+//   content:'hello world'
+// }
 
-  // interface Box<Type> {
-  //   content :Type
-  // }
-
-  // const typeString :Box<String> ={
-  //   content:'hello world'
-  // }
-
-  // console.log(typeString)
-
-
+// console.log(typeString)
 
 // interface Box <Type> {
 //   contents :Type
@@ -779,14 +775,13 @@
 // const apples :appleBox ={
 //   contents:{
 //     contents:'hello there'
-    
+
 //     }
-  
+
 // }
 // console.log(apples)
 
-
-// array type 
+// array type
 
 // function testingArray(array:Array< string >){
 //   return array
@@ -795,29 +790,21 @@
 // const myArray :string[] = ['hello', 'world',]
 // console.log(testingArray(myArray))
 
-
 // console.log(testingArray(new Array('neji','zayn', 'hussein')))
-
-
 
 // more type checking for types aliases
 // type valueOrNull<Type> = Type | null
 
-
-
 // const something :valueOrNull<string> ='killer'
-
-
 
 // function readonlyArray(array:ReadonlyArray<string>){
 //   const slice = array.slice()
 
 //   console.log(array[0])
 
-
 // }
 
-// learning about array typles and readonly 
+// learning about array typles and readonly
 
 // function noChange(pair: readonly [number, string]) {
 //   console.log(pair[0])
@@ -831,52 +818,42 @@
 // }
 // allArray([1, 'hussein',])
 
+// assetion with typles array don't work
 
-
-// assetion with typles array don't work 
-
-// const points = [4, 5] as const 
+// const points = [4, 5] as const
 
 // function calculate(points:[number, number]){
 //   const [x, y] = point
 //   return x +y
 // }
 
-
 // calculate(points)
 
-
-
-// class types 
+// class types
 
 // class Point {
 //   x:number;
 //   y:number;
 // }
 
-
-// const points =  new Point() 
+// const points =  new Point()
 
 // points.x = 3
 // points.y  = 10
 
 // console.log(points.x)
 
-
 // class amazingPerson {
 //   name!:string
 
-
- 
 // }
 
 // const person = new amazingPerson()
 
-// person.name = 'hussein' 
+// person.name = 'hussein'
 // console.log(person)
 
-
-// readonly class propertires 
+// readonly class propertires
 
 // class readOnlyPerson {
 //   readonly name: string = 'neji'
@@ -885,8 +862,6 @@
 //       this.name = otherName
 //     }
 
-
-    
 //   }
 //   err(){
 //     this.name = 'hello'
@@ -897,40 +872,31 @@
 // const Hello = new readOnlyPerson()
 // Hello.name = 'love'
 
-
-
-// classes type pending 
-
-
+// classes type pending
 
 // generics
-
 
 // function testing<Type>(arg:Type):Type{
 //   return arg
 // }
 
-
 // const loveLearning = testing(32)
 // console.log(loveLearning)
 
-
-// generic with types 
-function generic<Type>(arg:Type):Type{
-  return arg 
- }
+// generic with types
+function generic<Type>(arg: Type): Type {
+  return arg;
+}
 // generic interface
-interface genericType <Type>{
-  (arg:Type):Type
+interface genericType<Type> {
+  (arg: Type): Type;
 }
 
-const myGeneric : genericType<string> = generic
+const myGeneric: genericType<string> = generic;
 
-console.log('generic interfaces', myGeneric('love'))
+console.log("generic interfaces", myGeneric("love"));
 
-
-
-// generic with classes 
+// generic with classes
 
 // class GenericClass<Type>{
 //   number:Type
@@ -940,7 +906,7 @@ console.log('generic interfaces', myGeneric('love'))
 // let creatingClassGeneric = new GenericClass<number>()
 
 //  creatingClassGeneric.number=53
-//  creatingClassGeneric.add = (a, b ) => a + b 
+//  creatingClassGeneric.add = (a, b ) => a + b
 
 //  console.log(creatingClassGeneric.add(5,3))
 // // Constraints
@@ -955,9 +921,7 @@ console.log('generic interfaces', myGeneric('love'))
 
 // const see = getLength('lauv')
 
-
-
-// constraints of of keyof 
+// constraints of of keyof
 
 // function getObjectKey <Type , Key extends keyof Type>(obj:Type, key: Key){
 //   return obj[key]
@@ -965,8 +929,7 @@ console.log('generic interfaces', myGeneric('love'))
 
 // console.log(getObjectKey({name:'hussein', age:27}, 'name'))
 
-
-// keyof type 
+// keyof type
 // interface Points {
 //   x:number, y:number
 // }
@@ -987,7 +950,6 @@ console.log('generic interfaces', myGeneric('love'))
 
 // console.log(getProperty({name:'lauv', age:29}, 'age'))
 
-
 // keyof in index signatures
 
 // interface indexValue {
@@ -1002,7 +964,7 @@ console.log('generic interfaces', myGeneric('love'))
 
 // console.log(indexFun([3, 3, 4] , 1))
 
-// typeof type operator 
+// typeof type operator
 
 // type funcType = (num:number)=>number
 
@@ -1012,24 +974,20 @@ console.log('generic interfaces', myGeneric('love'))
 //   return {x:3, y:4}
 // }
 
-
 // type love= ReturnType<typeof f>
 
+// let person = 'hussein'
 
-let person = 'hussein'
+// let anotherPerson : typeof person
 
-let anotherPerson : typeof person
+// anotherPerson ='neji'
+// with object
 
-
-anotherPerson ='neji'
-// with object 
-
-interface personObject {
-  name:'string', age:number
-}
+// interface personObject {
+//   name:'string', age:number
+// }
 
 // type personType  = typeof personObject
-
 
 // combine typeof keyof
 
@@ -1046,12 +1004,10 @@ interface personObject {
 
 // console.log(getValue(testingPerson, 'age'))
 
-
-// typeof function 
-
+// typeof function
 
 // function lauv(name:string):string{
-//   return name 
+//   return name
 // }
 
 // // type func = typeof lauv
@@ -1063,68 +1019,111 @@ interface personObject {
 // console.log(greetLauv('killer'))
 
 // Indexed Access Types
-type Car = {
-  make: string;
-  model: string;
-  year: number;
-};
+// type Car = {
+//   make: string;
+//   model: string;
+//   year: number;
+// };
 
+// type makeType  = Car['make']
 
-type makeType  = Car['make']
+// type ModelYearType = Car['model'|'year']
 
-type ModelYearType = Car['model'|'year']
+// type Book = {
+//   title: string;
+//   author: string;
+//   pages: number;
+//   published: boolean;
+// };
 
-type Book = {
-  title: string;
-  author: string;
-  pages: number;
-  published: boolean;
-};
+// type StringProperties = Book['title'| 'author']
 
-type StringProperties = Book['title'| 'author']
+// type allProps = Book[keyof Book]
 
-type allProps = Book[keyof Book]
+// with arrays
 
+// const users = [
+//   { username: "Alice", age: 25 },
+//   { username: "Bob", age: 30 },
+//   { username: "Charlie", age: 35 },
+// ];
 
-// with arrays 
-
-const users = [
-  { username: "Alice", age: 25 },
-  { username: "Bob", age: 30 },
-  { username: "Charlie", age: 35 },
-];
-
-type User = typeof users[number]
-type Username =  User['username']
-type Age =  User['age']
-
-
+// type User = typeof users[number]
+// type Username =  User['username']
+// type Age =  User['age']
 
 // Custom Key Unions
 
-type Person = {
-  name: string;
-  age: number;
-  alive: boolean;
-  address: string;
-};
+// type Person = {
+//   name: string;
+//   age: number;
+//   alive: boolean;
+//   address: string;
+// };
 
+// type NameOrAddress = Person['name'|'address']
 
-type NameOrAddress = Person['name'|'address']
+// type allButBoolean = 'age' | 'alive'
 
-type allButBoolean = 'age' | 'alive'
-
-type NonBooleanProperties = Person[ allButBoolean ]
+// type NonBooleanProperties = Person[ allButBoolean ]
 
 // Conditional types
 
-interface Animal{
-  name:string
+// interface Animal{
+//   name:string
+// }
+
+// interface Cat extends Animal {
+//   sound :string
+// }
+
+// type CatSound = Cat extends Animal ? string :number
+
+interface IdLabel {
+  id: number;
 }
 
-interface Cat extends Animal {
-  sound :string
+interface NameLabel {
+  name: string;
 }
 
+type NameOrId<T extends number | string> = T extends number
+  ? IdLabel
+  : NameLabel;
 
-type CatSound = Cat extends Animal ? string :number
+function createLabel<T extends number | string>(idOrNumber: T): NameOrId<T> {
+  if (typeof idOrNumber === "number") {
+    return { id: idOrNumber } as NameOrId<T>;
+  } else{
+    return { name: idOrNumber } as NameOrId<T>;
+  }
+  throw new Error('unknown type')
+}
+
+console.log(createLabel(32));
+console.log(createLabel("hello"));
+
+// inferring types
+
+// flatting arrays
+
+// type Flatten<T> = T extends Array<infer Item> ? Item : T
+
+// type stringType = Flatten<string>
+// type numberType = Flatten<number[]>
+
+// const arrayString :stringType = ['hello', 'lauv']
+
+// union types and conditional types
+
+// type ToArray<Type> = Type extends any ? Type[] : never;
+
+// type NumberOrString = ToArray<number|string>
+
+// const array:NumberOrString = ['neji', 'testing']
+
+// conditional types  exercies 
+
+type isString <T> = T extends string ? true: false
+
+

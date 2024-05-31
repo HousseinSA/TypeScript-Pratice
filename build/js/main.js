@@ -592,9 +592,9 @@
 // circle.style.width = ColorCircle.width;
 // circle.style.height = ColorCircle.height;
 // circle.style.borderRadius = ColorCircle.radius;
-// circle.style.backgroundColor = ColorCircle.color; 
+// circle.style.backgroundColor = ColorCircle.color;
 // document.body.appendChild(circle);
-// generics on interface 
+// generics on interface
 // interface Box<Type> {
 //   content :Type
 // }
@@ -615,7 +615,7 @@
 //     }
 // }
 // console.log(apples)
-// array type 
+// array type
 // function testingArray(array:Array< string >){
 //   return array
 // }
@@ -629,7 +629,7 @@
 //   const slice = array.slice()
 //   console.log(array[0])
 // }
-// learning about array typles and readonly 
+// learning about array typles and readonly
 // function noChange(pair: readonly [number, string]) {
 //   console.log(pair[0])
 // }
@@ -639,19 +639,19 @@
 //     console.log(array)
 // }
 // allArray([1, 'hussein',])
-// assetion with typles array don't work 
-// const points = [4, 5] as const 
+// assetion with typles array don't work
+// const points = [4, 5] as const
 // function calculate(points:[number, number]){
 //   const [x, y] = point
 //   return x +y
 // }
 // calculate(points)
-// class types 
+// class types
 // class Point {
 //   x:number;
 //   y:number;
 // }
-// const points =  new Point() 
+// const points =  new Point()
 // points.x = 3
 // points.y  = 10
 // console.log(points.x)
@@ -659,9 +659,9 @@
 //   name!:string
 // }
 // const person = new amazingPerson()
-// person.name = 'hussein' 
+// person.name = 'hussein'
 // console.log(person)
-// readonly class propertires 
+// readonly class propertires
 // class readOnlyPerson {
 //   readonly name: string = 'neji'
 //   constructor(otherName?:string){
@@ -675,79 +675,27 @@
 // }
 // const Hello = new readOnlyPerson()
 // Hello.name = 'love'
-// classes type pending 
+// classes type pending
 // generics
 // function testing<Type>(arg:Type):Type{
 //   return arg
 // }
 // const loveLearning = testing(32)
 // console.log(loveLearning)
-// generic with types 
+// generic with types
 function generic(arg) {
     return arg;
 }
 const myGeneric = generic;
-console.log('generic interfaces', myGeneric('love'));
-// generic with classes 
-// class GenericClass<Type>{
-//   number:Type
-//   add:(a:Type, b:Type)=>Type
-// }
-// let creatingClassGeneric = new GenericClass<number>()
-//  creatingClassGeneric.number=53
-//  creatingClassGeneric.add = (a, b ) => a + b 
-//  console.log(creatingClassGeneric.add(5,3))
-// // Constraints
-// interface Length {
-//   length: number
-// }
-// function getLength <Type extends Length>(x:Type):Type {
-//  console.log(x.length)
-//  return x
-// }
-// const see = getLength('lauv')
-// constraints of of keyof 
-// function getObjectKey <Type , Key extends keyof Type>(obj:Type, key: Key){
-//   return obj[key]
-// }
-// console.log(getObjectKey({name:'hussein', age:27}, 'name'))
-// keyof type 
-// interface Points {
-//   x:number, y:number
-// }
-// type point = keyof Points
-// const pointFunc = function(thisPoint:Points, key:point) {
-//   return  thisPoint[key]
-// }
-// const pointObj = {x:5, y:10}
-// console.log(pointFunc(pointObj, 'x'))
-// console.log(pointFunc(pointObj, 'y'))
-// function getProperty<T, K extends keyof T> (obj:T, key:K):T[K]{
-// return obj[key]
-// }
-// console.log(getProperty({name:'lauv', age:29}, 'age'))
-// keyof in index signatures
-// interface indexValue {
-//   [index: number]: number;
-// }
-// type p = keyof indexValue;
-// const indexFun = function (array: indexValue, index: number): number {
-//   return array[index];
-// };
-// console.log(indexFun([3, 3, 4] , 1))
-// typeof type operator 
-// type funcType = (num:number)=>number
-// type k = ReturnType<funcType>
-// function f(){
-//   return {x:3, y:4}
-// }
-// type love= ReturnType<typeof f>
-let person = 'hussein';
-let anotherPerson;
-anotherPerson = 'neji';
-// with arrays 
-const users = [
-    { username: "Alice", age: 25 },
-    { username: "Bob", age: 30 },
-    { username: "Charlie", age: 35 },
-];
+console.log("generic interfaces", myGeneric("love"));
+function createLabel(idOrNumber) {
+    if (typeof idOrNumber === "number") {
+        return { id: idOrNumber };
+    }
+    else {
+        return { name: idOrNumber };
+    }
+    throw new Error('unknown type');
+}
+console.log(createLabel(32));
+console.log(createLabel("hello"));
