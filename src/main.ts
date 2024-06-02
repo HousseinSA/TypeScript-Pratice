@@ -1079,29 +1079,30 @@ console.log("generic interfaces", myGeneric("love"));
 
 // type CatSound = Cat extends Animal ? string :number
 
-interface IdLabel {
-  id: number;
-}
+// interface IdLabel {
+//   id: number;
+// }
 
-interface NameLabel {
-  name: string;
-}
+// interface NameLabel {
+//   name: string;
+// }
 
-type NameOrId<T extends number | string> = T extends number
-  ? IdLabel
-  : NameLabel;
+// type NameOrId<T extends number | string> = T extends number
+//   ? IdLabel
+//   : NameLabel;
 
-function createLabel<T extends number | string>(idOrNumber: T): NameOrId<T> {
-  if (typeof idOrNumber === "number") {
-    return { id: idOrNumber } as NameOrId<T>;
-  } else{
-    return { name: idOrNumber } as NameOrId<T>;
-  }
-  throw new Error('unknown type')
-}
+// function createLabel<T extends number | string>(idOrNumber: T): NameOrId<T> {
+//   if (typeof idOrNumber === "number") {
+//     return { id: idOrNumber } as NameOrId<T>;
+//   } else{
+//     return { name: idOrNumber } as NameOrId<T>;
+//   }
 
-console.log(createLabel(32));
-console.log(createLabel("hello"));
+//   throw new Error('unknown type')
+// }
+
+// console.log(createLabel(32));
+// console.log(createLabel("hello"));
 
 // inferring types
 
@@ -1122,8 +1123,61 @@ console.log(createLabel("hello"));
 
 // const array:NumberOrString = ['neji', 'testing']
 
-// conditional types  exercies 
+// conditional types  exercises
 
-type isString <T> = T extends string ? true: false
+// type isString <T> = T extends string ? true: false
 
 
+// interface idLabel  {
+//   id:number
+// }
+// interface nameLabel  {
+//   name:string
+// }
+
+// type idOrLabel<T extends string | number> = T extends number ? idLabel :nameLabel
+
+// function idOrNumber<T extends number | string>(input:T):idOrLabel<T>{
+//   if(typeof input === 'string'){
+//     return {name:input} as idOrLabel<T>
+//   }else {
+//     return {id:input} as idOrLabel<T>
+//   }
+// }
+
+// console.log(idOrNumber(
+//   'hello'
+// ))
+
+
+// type MessageOf <T extends { message:unknown}> = T['message']
+// interface Email {
+//   message: string;
+// }
+
+// interface Notification {
+//   message: {
+//       title: string;
+//       body: string;
+//   };
+// }
+
+// type emailContent = MessageOf<Email>
+// type NotificationContent = MessageOf<Notification>
+
+// type GetReturnType<Type> = Type extends string|number ? Type :never
+
+// type Num = GetReturnType<boolean>; // number
+// type Str = GetReturnType<(x: string) => string>; // string
+// type Bools = GetReturnType<(a: boolean, b: boolean) => boolean[]>; // boolean[]
+
+// mapping types
+
+type colors ={
+  red:string, 
+  blue:string, 
+  green:string
+}
+type modifiedColors ={
+  [key in keyof colors]:number
+}

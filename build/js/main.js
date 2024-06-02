@@ -688,14 +688,3 @@ function generic(arg) {
 }
 const myGeneric = generic;
 console.log("generic interfaces", myGeneric("love"));
-function createLabel(idOrNumber) {
-    if (typeof idOrNumber === "number") {
-        return { id: idOrNumber };
-    }
-    else {
-        return { name: idOrNumber };
-    }
-    throw new Error('unknown type');
-}
-console.log(createLabel(32));
-console.log(createLabel("hello"));

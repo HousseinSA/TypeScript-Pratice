@@ -43,3 +43,9 @@
 // }
 
 // type awaitedUsers = Awaited<ReturnType<typeof getUsers>>
+
+
+
+// dave gray video 
+
+const reg = /\w+/g;
