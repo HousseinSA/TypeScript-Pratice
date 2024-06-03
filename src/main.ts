@@ -1181,3 +1181,66 @@ type colors ={
 type modifiedColors ={
   [key in keyof colors]:number
 }
+
+type Horse = any
+
+type OnlyBoolsAndHorses = {
+  [key: string]: boolean | Horse;
+};
+
+
+
+
+// using maps types 
+
+
+// using generics
+
+
+
+type OptionsFlags<Type> = {
+  [Property in keyof Type]: boolean;
+};
+
+
+
+type Features  = {
+  darkMode:void,
+  newUser:void
+}
+
+
+
+type FeatureOptions = OptionsFlags<Features>;
+
+
+
+// using modifiers
+
+type lockedUser = {
+  readonly id:string, 
+  readonly name:string
+}
+
+type changingLockerUser <Type>={
+  -readonly [key in keyof Type]:Type[key]
+}
+
+
+type unlockedUser = changingLockerUser<lockedUser>
+
+// key Remapping 
+
+type Getters<Type> = {
+  [Property in keyof Type as `get${Capitalize<string &Property>}`]: () => Type[Property];
+};
+
+interface Person {
+  name: string;
+  age: number;
+  location: string;
+}
+
+type LazyPerson = Getters<Person>;
+
+
